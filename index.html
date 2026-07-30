@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Car Connection Box Aftersales Manual</title>
+    <style>
+        /* --- Global Styles --- */
+        :root {
+            --primary-color: #4a9eff;
+            --bg-color: #1a1a1a;
+            --text-color: #e0e0e0;
+            --border-color: #333333;
+            --card-bg: #252525;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background-color: var(--bg-color);
+            color: var(--text-color);
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 40px 20px;
+        }
+
+        .container {
+            width: 100%;
+            max-width: 800px;
+        }
+
+        .version-card {
+            background: var(--card-bg);
+            border-radius: 8px;
+            padding: 40px;
+            box-shadow: 0 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .version-title {
+            font-size: 24px;
+            color: #fff;
+            margin-bottom: 30px;
+            padding-bottom: 15px;
+            border-bottom: 2px solid var(--border-color);
+        }
+
+        .version-card + .version-card {
+            margin-top: 30px;
+        }
+
+        .info-row {
+            margin-bottom: 25px;
+        }
+
+        .info-label {
+            font-size: 16px;
+            color: var(--primary-color);
+            margin-bottom: 10px;
+            font-weight: 500;
+        }
+
+        .info-value {
+            font-size: 18px;
+            color: #fff;
+            padding: 12px 16px;
+            background: #1e1e1e;
+            border-radius: 6px;
+            border: 1px solid var(--border-color);
+        }
+
+        .info-value a {
+            color: var(--primary-color);
+            text-decoration: none;
+        }
+
+        .info-value a:hover {
+            text-decoration: underline;
+        }
+
+        .manual-link-btn {
+            display: block;
+            width: fit-content;
+            margin: 15px auto 0;
+            padding: 12px 24px;
+            background: var(--primary-color);
+            color: #fff;
+            text-decoration: none;
+            border-radius: 6px;
+            font-size: 15px;
+            font-weight: 500;
+            transition: all 0.3s;
+        }
+
+        .manual-link-btn:hover {
+            background: #3a8eef;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 12px rgba(74, 158, 255, 0.3);
+        }
+
+        .update-content {
+            min-height: 80px;
+            font-size: 15px;
+            line-height: 1.8;
+            color: #ccc;
+            white-space: pre-wrap;
+        }
+
+        .update-placeholder {
+            color: #666;
+            font-style: italic;
+        }
+
+        /* --- Latest Version Tag --- */
+        .latest-badge {
+            color: var(--primary-color);
+            font-size: 14px;
+            font-weight: 500;
+            margin-left: 8px;
+            vertical-align: middle;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- ★ 最新版: 把下面这行 <span class="latest-badge">Latest</span> 移动到新版本的版本号后面即可 -->
+        <div class="version-card">
+            <h1 class="version-title">Car Connection Box Aftersales Manual</h1>
+
+            <div class="info-row">
+                <div class="info-label">Manual Version:</div>
+                <div class="info-value">1.2.0<span class="latest-badge">(Latest)</span></div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Update Content:</div>
+                <div class="info-value update-content" style="text-align: left; padding-left: 16px;">1. Added User Guide module
+2. Added Chapter Overview to some chapters
+3. Moved content from Product Information to Appendix; moved some content from Upgrade Instruction
+4. Added Tip and Problem Feedback to the Troubleshooting module
+5. Changed some tutorial links to embedded video format (no extra navigation needed)
+6. Added hardware upgrade and software upgrade tutorials to the Software Updates module</div>
+                <a href="./V1.2.0(6.18)/index.html" target="_blank" class="manual-link-btn">After-Sales Manual Link</a>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <h1 class="version-title">Car Connection Box Aftersales Manual</h1>
+
+            <div class="info-row">
+                <div class="info-label">Manual Version:</div>
+                <div class="info-value">1.1.0</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Update Content:</div>
+                <div class="info-value update-content" style="text-align: left; padding-left: 16px;">Updated the Feedback module</div>
+                <a href="./V1.1.0(5.6)/index.html" target="_blank" class="manual-link-btn">After-Sales Manual Link</a>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <h1 class="version-title">Car Connection Box Aftersales Manual</h1>
+
+            <div class="info-row">
+                <div class="info-label">Manual Version:</div>
+                <div class="info-value">1.0.2</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Update Content:</div>
+                <div class="info-value update-content" style="text-align: left; padding-left: 16px;">1.Updated Installation Instruction module in 7.4 Software Update
+2. Fixed the issue of blank pages when downloading PDF</div>
+                <a href="./V1.0.2(4.30)/index.html" target="_blank" class="manual-link-btn">After-Sales Manual Link</a>
+            </div>
+        </div>
+
+        <div class="version-card">
+            <h1 class="version-title">Car Connection Box Aftersales Manual</h1>
+
+            <div class="info-row">
+                <div class="info-label">Manual Version:</div>
+                <div class="info-value">1.0.1</div>
+            </div>
+
+            <div class="info-row">
+                <div class="info-label">Update Content:</div>
+                <div class="info-value update-content" style="text-align: left; padding-left: 16px;">First Release</div>
+                <a href="./V1.0.1(4.24)/index.html" target="_blank" class="manual-link-btn">After-Sales Manual Link</a>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
