@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Customer Feedback</title>
+    <title>Opinie klientów</title>
     <style>
         * {
             margin: 0;
@@ -216,84 +216,84 @@
 </head>
 <body>
     <div class="feedback-container">
-        <!-- 表单 -->
+        <!-- Formularz -->
         <div id="feedbackForm">
-            <h1 class="feedback-title">Customer Feedback</h1>
-            <p class="feedback-subtitle">We will contact you via email as soon as possible</p>
+            <h1 class="feedback-title">Opinie klientów</h1>
+            <p class="feedback-subtitle">Skontaktujemy się z Tobą drogą mailową tak szybko, jak to możliwe</p>
 
             <div class="error-message" id="errorMessage"></div>
 
             <form id="form">
-                <!-- 国家（文本输入） -->
+                <!-- Kraj (wprowadzanie tekstu) -->
                 <div class="form-group">
                     <label class="form-label">
-                        Country <span class="required">*</span>
+                        Kraj <span class="required">*</span>
                     </label>
-                    <input type="text" class="form-input" name="country" placeholder="Enter your country" required>
+                    <input type="text" class="form-input" name="country" placeholder="Wprowadź swój kraj" required>
                 </div>
 
-                <!-- 车型（文本输入） -->
+                <!-- Model samochodu (wprowadzanie tekstu) -->
                 <div class="form-group">
                     <label class="form-label">
-                        Car Model <span class="required">*</span>
+                        Model samochodu <span class="required">*</span>
                     </label>
-                    <input type="text" class="form-input" name="carModel" placeholder="Enter your car model" required>
+                    <input type="text" class="form-input" name="carModel" placeholder="Wprowadź model swojego samochodu" required>
                 </div>
 
-                <!-- 问题描述 -->
+                <!-- Opis problemu -->
                 <div class="form-group">
                     <label class="form-label">
-                        Problem Description <span class="required">*</span>
+                        Opis problemu <span class="required">*</span>
                     </label>
-                    <textarea class="form-textarea" name="description" placeholder="Please describe your problem in detail..." required></textarea>
+                    <textarea class="form-textarea" name="description" placeholder="Opisz szczegółowo swój problem..." required></textarea>
                 </div>
 
-                <!-- 邮箱 -->
+                <!-- E-mail -->
                 <div class="form-group">
                     <label class="form-label">
-                        Your Email <span class="required">*</span>
+                        Twój e-mail <span class="required">*</span>
                     </label>
                     <input type="email" class="form-input" name="email" placeholder="example@email.com" required>
                 </div>
 
-                <!-- 图片上传 -->
+                <!-- Przesyłanie obrazu -->
                 <div class="form-group">
-                    <label class="form-label">Upload Image (Max 5MB)</label>
+                    <label class="form-label">Prześlij obraz (maks. 5 MB)</label>
                     <label class="file-upload" id="imageUpload">
                         <input type="file" name="image" accept="image/*" id="imageInput">
                         <div class="file-upload-icon">📷</div>
-                        <div class="file-upload-text">Click to upload image</div>
-                        <div class="file-upload-hint">JPG, PNG, GIF up to 5MB</div>
+                        <div class="file-upload-text">Kliknij, aby przesłać obraz</div>
+                        <div class="file-upload-hint">JPG, PNG, GIF do 5 MB</div>
                     </label>
                     <div id="imagePreview"></div>
                 </div>
 
-                <!-- 视频链接 -->
+                <!-- Link do wideo -->
                 <div class="form-group">
-                    <label class="form-label">Video Link (Google Drive, etc.)</label>
+                    <label class="form-label">Link do wideo (Google Drive itp.)</label>
                     <input type="url" class="form-input" name="videoLink" placeholder="https://drive.google.com/...">
                     <p style="font-size: 12px; color: #666; margin-top: 6px;">
-                        For videos larger than 5MB, please upload to Google Drive and share the link
+                        Filmy większe niż 5 MB prześlij na Google Drive i udostępnij link
                     </p>
                 </div>
 
-                <button type="submit" class="submit-btn" id="submitBtn">Submit Feedback</button>
+                <button type="submit" class="submit-btn" id="submitBtn">Wyślij opinię</button>
             </form>
         </div>
 
-        <!-- 成功提示 -->
+        <!-- Komunikat o sukcesie -->
         <div class="success-message" id="successMessage">
             <div class="success-icon">✅</div>
-            <h2 class="success-title">Submitted Successfully!</h2>
+            <h2 class="success-title">Wysłano pomyślnie!</h2>
             <p class="success-text">
-                We have received your feedback.<br>
-                Our team will contact you at your email shortly.
+                Otrzymaliśmy Twoją opinię.<br>
+                Nasz zespół wkrótce skontaktuje się z Tobą drogą mailową.
             </p>
         </div>
     </div>
 
     <script>
-        // 腾讯云函数 URL
+        // URL funkcji chmurowej Tencent
         var WORKER_URL = 'https://1410776270-jd7ixwhwuy.ap-shanghai.tencentscf.com';
 
         var form = document.getElementById('form');
@@ -306,19 +306,19 @@
 
         var imageBase64 = '';
 
-        // 图片上传预览
+        // Podgląd przesłanego obrazu
         imageInput.addEventListener('change', function(e) {
             var file = e.target.files[0];
             if (!file) return;
 
             if (file.size > 5 * 1024 * 1024) {
-                showError('Image size must be less than 5MB');
+                showError('Rozmiar obrazu musi być mniejszy niż 5 MB');
                 imageInput.value = '';
                 return;
             }
 
             if (!file.type.startsWith('image/')) {
-                showError('Please upload an image file');
+                showError('Prześlij plik obrazu');
                 imageInput.value = '';
                 return;
             }
@@ -337,12 +337,12 @@
                 : (size / (1024 * 1024)).toFixed(1) + ' MB';
 
             imagePreview.innerHTML = '<div class="file-preview">' +
-                '<img src="' + base64 + '" alt="Preview">' +
+                '<img src="' + base64 + '" alt="Podgląd">' +
                 '<div class="file-preview-info">' +
                     '<div class="file-preview-name">' + name + '</div>' +
                     '<div class="file-preview-size">' + sizeStr + '</div>' +
                 '</div>' +
-                '<button type="button" class="file-preview-remove" onclick="removeImage()">Remove</button>' +
+                '<button type="button" class="file-preview-remove" onclick="removeImage()">Usuń</button>' +
             '</div>';
         }
 
@@ -360,15 +360,15 @@
             }, 5000);
         }
 
-        // 表单提交
+        // Przesyłanie formularza
         form.addEventListener('submit', async function(e) {
             e.preventDefault();
 
-            console.log('[Feedback] 开始提交表单...');
+            console.log('[Feedback] Rozpoczęcie przesyłania formularza...');
 
             submitBtn.disabled = true;
             submitBtn.classList.add('loading');
-            submitBtn.textContent = 'Submitting...';
+            submitBtn.textContent = 'Wysyłanie...';
 
             var formData = {
                 country: form.elements['country'].value,
@@ -379,7 +379,7 @@
                 imageBase64: imageBase64
             };
 
-            console.log('[Feedback] 提交数据:', {
+            console.log('[Feedback] Przesyłane dane:', {
                 country: formData.country,
                 carModel: formData.carModel,
                 hasImage: !!imageBase64,
@@ -387,7 +387,7 @@
             });
 
             try {
-                console.log('[Feedback] 发送请求到:', WORKER_URL);
+                console.log('[Feedback] Wysyłanie żądania do:', WORKER_URL);
                 var response = await fetch(WORKER_URL, {
                     method: 'POST',
                     headers: {
@@ -396,40 +396,40 @@
                     body: JSON.stringify(formData)
                 });
 
-                console.log('[Feedback] 响应状态:', response.status, response.statusText);
+                console.log('[Feedback] Status odpowiedzi:', response.status, response.statusText);
 
-                // 先检查 HTTP 状态码
+                // Najpierw sprawdź kod statusu HTTP
                 if (!response.ok) {
                     var errText = await response.text();
-                    console.error('[Feedback] 服务器错误响应:', errText);
-                    throw new Error('Server error: ' + response.status + ' ' + errText);
+                    console.error('[Feedback] Błąd odpowiedzi serwera:', errText);
+                    throw new Error('Błąd serwera: ' + response.status + ' ' + errText);
                 }
 
                 var result = await response.json();
-                console.log('[Feedback] 响应数据:', result);
+                console.log('[Feedback] Dane odpowiedzi:', result);
 
-                // 根据返回的 success 字段判断
+                // Sprawdź pole success w odpowiedzi
                 if (result.success) {
-                    console.log('[Feedback] 显示成功提示');
+                    console.log('[Feedback] Wyświetlanie komunikatu o sukcesie');
                     feedbackForm.style.display = 'none';
                     successMessage.classList.add('show');
                 } else {
-                    // 显示后端返回的具体错误
-                    var errorMsg = result.error || result.bitableError || 'Submission failed';
-                    console.error('[Feedback] 提交失败:', errorMsg);
-                    showError('提交失败: ' + errorMsg);
+                    // Wyświetl konkretny błąd zwrócony przez backend
+                    var errorMsg = result.error || result.bitableError || 'Wysyłanie nie powiodło się';
+                    console.error('[Feedback] Wysyłanie nie powiodło się:', errorMsg);
+                    showError('Wysyłanie nie powiodło się: ' + errorMsg);
                     submitBtn.disabled = false;
                     submitBtn.classList.remove('loading');
-                    submitBtn.textContent = 'Submit Feedback';
+                    submitBtn.textContent = 'Wyślij opinię';
                 }
-                console.log('[Feedback] 成功提示已显示');
+                console.log('[Feedback] Komunikat o sukcesie wyświetlony');
 
             } catch (err) {
-                console.error('[Feedback] 提交失败:', err);
-                showError('Submission failed: ' + err.message);
+                console.error('[Feedback] Wysyłanie nie powiodło się:', err);
+                showError('Wysyłanie nie powiodło się: ' + err.message);
                 submitBtn.disabled = false;
                 submitBtn.classList.remove('loading');
-                submitBtn.textContent = 'Submit Feedback';
+                submitBtn.textContent = 'Wyślij opinię';
             }
         });
     </script>
